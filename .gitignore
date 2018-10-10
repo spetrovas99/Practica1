@@ -1,0 +1,8 @@
+
+config
+.settings/org.eclipse.jdt.core.prefs
+bin/Books$lan.class
+*.class
+.project
+.classpath
+.getignore
