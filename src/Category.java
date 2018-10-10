@@ -63,8 +63,6 @@ public class Category {
 		}
 		return aux;
 	}
-	
-	
 	void searchProduct(){
 		String res;
 		System.out.println("Buscar producto: ");
@@ -85,8 +83,5 @@ public class Category {
 		else{
 			System.out.println("No se ha encontrado.");
 		}
-		
-	}
-		
-		 
+	}		 
 }

@@ -129,8 +129,6 @@ public class Product {
 		System.out.println(product.getName());
 		System.out.println(product.getPrice() + " " + product.getMny().toString());
 		System.out.println(product.getStock());
-		
-		
 	}
 	void compra(){
 		if(stock>0)

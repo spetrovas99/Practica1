@@ -21,6 +21,7 @@ public class User {
 		this.login = login;
 		this.premium =premium;
 		this.credit= credit;
+		Configuration.write(login, email, password);
 	}
 	public String getEmail() {
 		return email;
@@ -40,7 +41,12 @@ public class User {
 	public void setCredit(String credir) {
 		this.credit=credit;
 	}
-	void sign_up(){
+	static void sign_up(){
+		String email;
+		String login;
+		String password;
+		String credit = null;
+		boolean premium;
 		do{
 		Scanner tec = new Scanner(System.in);
 		System.out.println("Indroduce tu correo");
@@ -59,10 +65,11 @@ public class User {
 		else{
 			System.out.println("Más adelante puede ser premium");	
 		}
-		}while(error());
+		}while(error(login, email, password, credit));
 		System.out.println("Bienvenido!!");
+		User usuario = new User(email,password,login,credit,premium);
 	}
-	boolean error(){
+	static boolean error(String login, String email, String password, String credit){
 		boolean aux=false;
 		String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" +
 			      "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";

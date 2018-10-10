@@ -2,7 +2,8 @@ import java.util.Scanner;
 public class Main {
 		
 	public static void main(String[] args) {
-		Configuration.config();
+		User.sign_up();
+		Configuration.read();
 		Scanner tec = new Scanner(System.in);
 		User x = new User();
 		//x.sign_up();
