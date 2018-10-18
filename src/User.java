@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,12 +10,17 @@ public class User {
 	protected String login;
 	protected boolean premium;
 	protected String credit;
+	static User user;
+	static List<User> users = new ArrayList<User>();
+	List<Product> userProduct = new ArrayList<Product>();
+	
 	User(){
 		email=null;
 		password=null;
 		login=null;
 		premium=false;
 		credit = null;
+		user = this;
 	}
 	User(String email, String password,String login,String credit,boolean premium){
 		this.email = email;
@@ -22,6 +29,7 @@ public class User {
 		this.premium =premium;
 		this.credit= credit;
 		Configuration.write(login, email, password);
+		user = this;
 	}
 	public String getEmail() {
 		return email;
@@ -95,5 +103,27 @@ public class User {
 			aux=true;
 		}
 		return aux;
+	}
+void buy(Product product){
+		if(product.stock > 0){
+			product.stock --;
+		}
+		product.mailPlus(product.price);
+		finalPrice(product);
+		System.out.println("RESUMEN");
+		System.out.println("Nombre:" + product.name );
+		System.out.print("Precio:");
+		System.out.printf("%.2f", product.price);
+		System.out.println(product.getMny().toString());
+}
+	void finalPrice(Product product){
+		if (!getPremium()){
+			product.price += product.mailPlus(product.price);	
+		}
+	}
+	void printUserProducts(){
+		for (int i = 0; i < userProduct.size(); i++){
+			System.out.println(userProduct.get(i).getName());
+		}
 	}
 }

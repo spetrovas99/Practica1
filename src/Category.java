@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Category {
 	String name;
-	
 	int id;
 	static List<Category> categories = new ArrayList<Category>();
 	List<Product> products = new ArrayList<Product>();
@@ -41,10 +40,10 @@ public class Category {
 		}
 	}
 	static Category seacrhCategory(){
-		String res;
-		Category aux = new Category();
-		System.out.println("Buscar categoria: ");
 		Scanner tec = new Scanner(System.in);
+		String res;
+		Category aux = null;
+		System.out.println("Buscar categoria: ");
 		res = tec.nextLine();
 		boolean esta = false;
 		int p = 0;

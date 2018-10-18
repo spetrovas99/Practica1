@@ -3,9 +3,8 @@ public class Main {
 		
 	public static void main(String[] args) {
 		User.sign_up();
-		Configuration.read();
 		Scanner tec = new Scanner(System.in);
-		User x = new User();
+		//User x = new User();
 		//x.sign_up();
 		Category v = new Category("ropa",1);
 		Category b = new Category("deporte",2);
@@ -17,9 +16,9 @@ public class Main {
 		//v.printProducts();
 		//b.printProducts();
 		//n.printProducts();
-		Category.seacrhCategory().printProducts();
-		
-		
+		//Category.seacrhCategory().printProducts();
+		Menu  p = new Menu();
+		p.start();
 			
 				
 	}

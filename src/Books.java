@@ -31,7 +31,6 @@ public class Books extends Product {
 	public void setIsbn(int isbn) {
 		this.isbn = isbn;
 	}
-	
 	public lan getLanguage() {
 		return language;
 	}

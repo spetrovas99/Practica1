@@ -116,26 +116,23 @@ public class Product {
 			cost=+(10*price/100);
 		else
 			cost=0;
-		
 		return cost;
 	}
-	void finalPrice(){
-		if (!my.getPremium()){
-			price += mailPlus(price);
-			System.out.println(price);
-		}
-	}
+	
 	static void stats(Product product){
-		System.out.println(product.getName());
-		System.out.println(product.getPrice() + " " + product.getMny().toString());
-		System.out.println(product.getStock());
-	}
-	void compra(){
-		if(stock>0)
-			stock--;
-		else{
-			System.out.println("no hay stock");
+		Scanner tec = new Scanner(System.in);
+		String res;
+		System.out.println("nombre: " + product.getName());
+		System.out.println("precio " + product.getPrice() + " " + product.getMny().toString());
+		System.out.println((product.getStock() == 0)?"Agotado":"Stock: " + product.getStock());
+		if(product.getStock() > 0){
+			System.out.println("quiere comparlo?(si/no)");
+			res=tec.nextLine();
+			if(res.equals("si"))
+				User.user.buy(product);
+			
 		}
+		
 	}
 	
 }
