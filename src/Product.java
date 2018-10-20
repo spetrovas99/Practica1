@@ -72,16 +72,18 @@ public class Product {
 	public void setMny(money mny) {
 		this.mny = mny;
 	}
-	void changeMoney(int price, money origin,money destiny){
+	void changeMoney(money origin,money destiny){
 		if (origin.toString().equals("euro")){
 			switch(destiny.toString()){
 			case "euro":
 				break;
 			case "dollar":
 				price *= 1.15;
+				mny = money.dollar;
 				break;
 			case "pound":
 				price*= 0.88;
+				mny = money.pound;
 				break;
 			}
 		}
@@ -91,9 +93,11 @@ public class Product {
 				break;
 			case "euro":
 				price*=0.87;
+				mny = money.euro;
 				break;
 			case "pound":
 				price*=0.77;
+				mny = money.pound;
 				break;
 			}
 		}
@@ -103,9 +107,11 @@ public class Product {
 				break;
 			case "dollar":
 				price*=1.31;
+				mny = money.dollar;
 				break;
 			case "euro":
 				price*=1.13;
+				mny = money.euro;
 				break;
 			}
 		}
@@ -122,13 +128,15 @@ public class Product {
 	static void stats(Product product){
 		Scanner tec = new Scanner(System.in);
 		String res;
-		System.out.println("nombre: " + product.getName());
-		System.out.println("precio " + product.getPrice() + " " + product.getMny().toString());
-		System.out.println((product.getStock() == 0)?"Agotado":"Stock: " + product.getStock());
+		System.out.println("Name: " + product.getName());
+		System.out.print("Price:");
+		System.out.printf("%.2f", product.price);
+		System.out.println(product.getMny().toString());
+		System.out.println((product.getStock() == 0)?"Out of stock":"Stock: " + product.getStock());
 		if(product.getStock() > 0){
-			System.out.println("quiere comparlo?(si/no)");
+			System.out.println("Buy?(yes/no)");
 			res=tec.nextLine();
-			if(res.equals("si"))
+			if(res.equals("yes"))
 				User.user.buy(product);
 			
 		}

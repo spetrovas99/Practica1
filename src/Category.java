@@ -43,7 +43,7 @@ public class Category {
 		Scanner tec = new Scanner(System.in);
 		String res;
 		Category aux = null;
-		System.out.println("Buscar categoria: ");
+		System.out.println("Search category: ");
 		res = tec.nextLine();
 		boolean esta = false;
 		int p = 0;
@@ -58,13 +58,13 @@ public class Category {
 			aux = categories.get(p);
 		}
 		else{
-			System.out.println("No se ha encontrado.");
+			System.out.println("It has not been found.");
 		}
 		return aux;
 	}
 	void searchProduct(){
 		String res;
-		System.out.println("Buscar producto: ");
+		System.out.println("Search product: ");
 		Scanner tec = new Scanner(System.in);
 		res = tec.nextLine();
 		boolean esta = false;
@@ -80,7 +80,7 @@ public class Category {
 			Product.stats(products.get(p));
 		}
 		else{
-			System.out.println("No se ha encontrado.");
+			System.out.println("It has not been found.");
 		}
 	}		 
 }

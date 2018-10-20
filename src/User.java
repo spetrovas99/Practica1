@@ -57,24 +57,24 @@ public class User {
 		boolean premium;
 		do{
 		Scanner tec = new Scanner(System.in);
-		System.out.println("Indroduce tu correo");
+		System.out.println("Introduce your email");
 		email=tec.nextLine();
-		System.out.println("Indroduce tu usuario(con más de 7 caracteres)");
+		System.out.println("Indroduce your user(at least 7 characters)");
 		login=tec.nextLine();
-		System.out.println("Indroduce tu contraseña(con más de 7 caracteres)");
+		System.out.println("Indroduce tu contraseña(at least 7 characters)");
 		password=tec.nextLine();
-		System.out.println("Quiere ser premium?(true/false)");
+		System.out.println("Join premium?(true/false)");
 		premium=tec.nextBoolean();
 		if(premium ==true){
 			Scanner tecs = new Scanner(System.in);
-			System.out.println("Introduza su tarjeta de crédito");
+			System.out.println("Introduce your credit card");
 			credit=tecs.nextLine();
 		}
 		else{
-			System.out.println("Más adelante puede ser premium");	
+			System.out.println("later you can be premium");	
 		}
 		}while(error(login, email, password, credit));
-		System.out.println("Bienvenido!!");
+		System.out.println("Welcome!!");
 		User usuario = new User(email,password,login,credit,premium);
 	}
 	static boolean error(String login, String email, String password, String credit){
@@ -104,17 +104,49 @@ public class User {
 		}
 		return aux;
 	}
-void buy(Product product){
-		if(product.stock > 0){
+	void buy(Product product){
+		Scanner tec = new Scanner(System.in);
+		String res;
+		if(product.stock > 0)
 			product.stock --;
-		}
+		
 		product.mailPlus(product.price);
 		finalPrice(product);
-		System.out.println("RESUMEN");
-		System.out.println("Nombre:" + product.name );
-		System.out.print("Precio:");
+		System.out.println("SUMMARY");
+		System.out.println("Name:" + product.name );
+		System.out.print("Price:");
 		System.out.printf("%.2f", product.price);
 		System.out.println(product.getMny().toString());
+		System.out.println("Quiere cambiar la moneda?(si/no)");
+		res=tec.nextLine();
+		if(res.equals("si")){
+			System.out.println("A cual moneda?");
+			System.out.println("1-euro");
+			System.out.println("2-dolar");
+			System.out.println("3-pound");
+			res=tec.nextLine();
+			switch(res){
+			case"1":
+				product.changeMoney(product.mny, Product.money.euro);
+				System.out.printf("%.2f", product.price);
+				System.out.println(product.getMny().toString());
+				break;
+			case "2":
+				product.changeMoney(product.mny, Product.money.dollar);
+				System.out.printf("%.2f", product.price);
+				System.out.println(product.getMny().toString());
+				break;
+			case "3":
+				product.changeMoney(product.mny,Product.money.pound );
+				System.out.printf("%.2f", product.price);
+				System.out.println(product.getMny().toString());
+				break;
+			}
+			
+		}
+		
+		
+		user.userProduct.add(product);
 }
 	void finalPrice(Product product){
 		if (!getPremium()){
@@ -122,8 +154,12 @@ void buy(Product product){
 		}
 	}
 	void printUserProducts(){
+		System.out.println("Shoping list:");
 		for (int i = 0; i < userProduct.size(); i++){
 			System.out.println(userProduct.get(i).getName());
+		}
+		if (userProduct.size() == 0){
+			System.out.println("There is no item on your list.");
 		}
 	}
 }
