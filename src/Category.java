@@ -57,9 +57,6 @@ public class Category {
 		if(esta){
 			aux = categories.get(p);
 		}
-		else{
-			System.out.println("It has not been found.");
-		}
 		return aux;
 	}
 	void searchProduct(){

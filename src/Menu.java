@@ -13,11 +13,21 @@ void start(){
 		res = tec.nextLine();
 		switch(res){
 		case "1":
-			Category.seacrhCategory().printProducts();
+			Category c = Category.seacrhCategory();
+			if (c == null) {
+				System.out.println("It has not been found.");
+			} else {
+				c.printProducts();
+			}
 			break;
 		case "2":
 			Category search = Category.seacrhCategory();
+			if (search == null){
+				System.out.println("It has not been found.");
+			}
+			else{
 			search.printProducts();
+			}
 			if(search != null)
 				search.searchProduct();
 			break;
