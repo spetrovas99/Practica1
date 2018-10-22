@@ -6,7 +6,7 @@ public class Main {
 		Scanner tec = new Scanner(System.in);
 	
 		Category c1 = new Category("Clothes",1);
-		Category c2 = new Category("Sport",2);
+		Category c2 = new Category("Sports",2);
 		Category c3 = new Category("Books",3);
 		Category c4 = new Category("Films",3);
 		
