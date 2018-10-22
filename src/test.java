@@ -9,7 +9,7 @@ public class test {
 	public void test() {
 		//fail("Not yet implemented");
 		Category ropa = new Category();
-		Category c2 = new Category("Sports",2);
+		Category c2 = new Category("Sports");
 		Product product = new Product("Pepe", 1, 1, 13.99f, Product.money.dollar, ropa);
 		assertEquals(product.getName(), "Pepe");
 		//assertEquals(product.mailPlus(13.99f), 13.99);

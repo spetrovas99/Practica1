@@ -5,10 +5,10 @@ public class Main {
 		User.sign_up();
 		Scanner tec = new Scanner(System.in);
 	
-		Category c1 = new Category("Clothes",1);
-		Category c2 = new Category("Sports",2);
-		Category c3 = new Category("Books",3);
-		Category c4 = new Category("Films",3);
+		Category c1 = new Category("Clothes");
+		Category c2 = new Category("Sports");
+		Category c3 = new Category("Books");
+		Category c4 = new Category("Films");
 		
 		Product p1 = new Product("T-Shirt", 1 , 10 , 9.99f , Product.money.dollar, c1);
 		Product p2 = new Product("Pants", 2 , 5 , 9.99f , Product.money.pound, c1);
@@ -26,9 +26,8 @@ public class Main {
 		Product f2 = new Product("Bat man2", 11 , 10 , 59.99f , Product.money.euro,c4);
 		Product f3 = new Product("Ready player one", 12 , 2 , 6.65f , Product.money.pound,c4);
 		Product f4 = new Product("Total recall", 13 , 1 , 30.43f , Product.money.euro,c4);
-		
-		Menu  p = new Menu();
-		p.start();
+	
+		Menu.start();
 			
 				
 	}

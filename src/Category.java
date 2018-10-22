@@ -4,30 +4,23 @@ import java.util.ArrayList;
 
 public class Category {
 	String name;
-	int id;
+	
 	static List<Category> categories = new ArrayList<Category>();
 	List<Product> products = new ArrayList<Product>();
 	
 	Category(){
 		name = null;
-		id = 0;
+		
 	}
-	Category(String name, int id){
+	Category(String name){
 		this.name = name;
-		this.id = id;
 		categories.add(this);
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	String getName(){
 		return name;
+	}
+	void setName( String name){
+		this.name = name;
 	}
 	static void printCategories(){
 		for (int i = 0; i < categories.size(); i++){
@@ -59,7 +52,8 @@ public class Category {
 		}
 		return aux;
 	}
-	void searchProduct(){
+	Product searchProduct(){
+		Product product= null;
 		String res;
 		System.out.println("Search product: ");
 		Scanner tec = new Scanner(System.in);
@@ -75,9 +69,11 @@ public class Category {
 		}
 		if(esta){
 			Product.stats(products.get(p));
+			product=products.get(p);
 		}
 		else{
 			System.out.println("It has not been found.");
 		}
+		return product;
 	}		 
 }

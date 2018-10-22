@@ -133,13 +133,6 @@ public class Product {
 		System.out.printf("%.2f", product.price);
 		System.out.println(product.getMny().toString());
 		System.out.println((product.getStock() == 0)?"Out of stock":"Stock: " + product.getStock());
-		if(product.getStock() > 0){
-			System.out.println("Buy?(yes/no)");
-			res=tec.nextLine();
-			if(res.equals("yes"))
-				User.user.buy(product);
-			
-		}
 		
 	}
 	

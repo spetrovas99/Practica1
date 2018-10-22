@@ -117,10 +117,10 @@ public class User {
 		System.out.print("Price:");
 		System.out.printf("%.2f", product.price);
 		System.out.println(product.getMny().toString());
-		System.out.println("Quiere cambiar la moneda?(si/no)");
+		System.out.println("Change currency?(yes/no)");
 		res=tec.nextLine();
-		if(res.equals("si")){
-			System.out.println("A cual moneda?");
+		if(res.equals("yes")){
+			System.out.println("to what currency?");
 			System.out.println("1-euro");
 			System.out.println("2-dolar");
 			System.out.println("3-pound");
@@ -142,10 +142,7 @@ public class User {
 				System.out.println(product.getMny().toString());
 				break;
 			}
-			
 		}
-		
-		
 		user.userProduct.add(product);
 }
 	void finalPrice(Product product){
@@ -159,7 +156,7 @@ public class User {
 			System.out.println(userProduct.get(i).getName());
 		}
 		if (userProduct.size() == 0){
-			System.out.println("There is no item on your list.");
+			System.out.println("There is no item in your list.");
 		}
 	}
 }
