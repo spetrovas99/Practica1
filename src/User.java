@@ -105,46 +105,48 @@ public class User {
 		return aux;
 	}
 	void buy(Product product){
-		Scanner tec = new Scanner(System.in);
-		String res;
-		if(product.stock > 0)
-			product.stock --;
 		
-		product.mailPlus(product.price);
-		finalPrice(product);
-		System.out.println("SUMMARY");
-		System.out.println("Name:" + product.name );
-		System.out.print("Price:");
-		System.out.printf("%.2f", product.price);
-		System.out.println(product.getMny().toString());
-		System.out.println("Change currency?(yes/no)");
-		res=tec.nextLine();
-		if(res.equals("yes")){
-			System.out.println("to what currency?");
-			System.out.println("1-euro");
-			System.out.println("2-dolar");
-			System.out.println("3-pound");
+			Scanner tec = new Scanner(System.in);
+			String res;
+			if(product.stock > 0)
+				product.stock --;
+		
+			product.mailPlus(product.price);
+			finalPrice(product);
+			System.out.println("SUMMARY");
+			System.out.println("Name:" + product.name );
+			System.out.print("Price:");
+			System.out.printf("%.2f", product.price);
+			System.out.println(product.getMny().toString());
+			System.out.println("Change currency?(yes/no)");
 			res=tec.nextLine();
-			switch(res){
-			case"1":
-				product.changeMoney(product.mny, Product.money.euro);
-				System.out.printf("%.2f", product.price);
-				System.out.println(product.getMny().toString());
-				break;
-			case "2":
-				product.changeMoney(product.mny, Product.money.dollar);
-				System.out.printf("%.2f", product.price);
-				System.out.println(product.getMny().toString());
-				break;
-			case "3":
-				product.changeMoney(product.mny,Product.money.pound );
-				System.out.printf("%.2f", product.price);
-				System.out.println(product.getMny().toString());
-				break;
+			if(res.equals("yes")){
+				System.out.println("to what currency?");
+				System.out.println("1-euro");
+				System.out.println("2-dolar");
+				System.out.println("3-pound");
+				res=tec.nextLine();
+				switch(res){
+				case"1":
+					product.changeMoney(product.mny, Product.money.euro);
+					System.out.printf("%.2f", product.price);
+					System.out.println(product.getMny().toString());
+					break;
+				case "2":
+					product.changeMoney(product.mny, Product.money.dollar);
+					System.out.printf("%.2f", product.price);
+					System.out.println(product.getMny().toString());
+					break;
+				case "3":
+					product.changeMoney(product.mny,Product.money.pound );
+					System.out.printf("%.2f", product.price);
+					System.out.println(product.getMny().toString());
+					break;
+				}
 			}
-		}
+		
 		user.userProduct.add(product);
-}
+	}
 	void finalPrice(Product product){
 		if (!getPremium()){
 			product.price += product.mailPlus(product.price);	

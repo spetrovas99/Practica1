@@ -23,7 +23,7 @@ public class Main {
 		Product b3 = new Product("The ugly Duckling", 9, 17 , 2.15f , Product.money.pound,c3);
 		
 		Product f1 = new Product("Star wars", 10 , 5 , 19.99f , Product.money.dollar,c4);
-		Product f2 = new Product("Bat man2", 11 , 10 , 59.99f , Product.money.euro,c4);
+		Product f2 = new Product("Bat man 2", 11 , 10 , 59.99f , Product.money.euro,c4);
 		Product f3 = new Product("Ready player one", 12 , 2 , 6.65f , Product.money.pound,c4);
 		Product f4 = new Product("Total recall", 13 , 1 , 30.43f , Product.money.euro,c4);
 	

@@ -35,7 +35,7 @@ public class Category {
 	static Category seacrhCategory(){
 		Scanner tec = new Scanner(System.in);
 		String res;
-		Category aux = null;
+		Category cat = null;
 		System.out.println("Search category: ");
 		res = tec.nextLine();
 		boolean esta = false;
@@ -48,9 +48,9 @@ public class Category {
 			}
 		}
 		if(esta){
-			aux = categories.get(p);
+			cat = categories.get(p);
 		}
-		return aux;
+		return cat;
 	}
 	Product searchProduct(){
 		Product product= null;

@@ -42,11 +42,15 @@ static void start(){
 			}
 			if(searches != null) { 
 				Product prod = searches.searchProduct();
-				System.out.println("Buy?(yes/no)");
-				res=tec.nextLine();
-				if(res.equals("yes") && prod != null){
-					User.user.buy(prod);
-				} 
+				if(prod != null){
+					if(prod.getStock() > 0){
+						System.out.println("Buy?(yes/no)");
+						res=tec.nextLine();
+						if(res.equals("yes") && prod != null){
+							User.user.buy(prod);
+						} 
+					}
+				}
 			}
 			break;
 		case "4":
