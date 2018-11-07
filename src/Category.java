@@ -3,8 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Category {
-	//Testing pull request
-	String name;
+	private String name;
 	
 	static List<Category> categories = new ArrayList<Category>();
 	List<Product> products = new ArrayList<Product>();

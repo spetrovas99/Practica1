@@ -43,13 +43,13 @@ public class User {
 	 public void setPremium(boolean premium) {
 		this.premium = premium;
 	}
-	public String getCredir() {
+	public String getCredit() {
 		return credit;
 	}
 	public void setCredit(String credir) {
 		this.credit=credit;
 	}
-	static void sign_up(){
+	static void sign_up() throws BooleanException{
 		String email;
 		String login;
 		String password;
@@ -64,14 +64,24 @@ public class User {
 		System.out.println("Indroduce tu contraseña(at least 7 characters)");
 		password=tec.nextLine();
 		System.out.println("Join premium?(true/false)");
-		premium=tec.nextBoolean();
+		String bool;
+		try{
+			bool = tec.nextLine();
+			if(!bool.equals("true") && !bool.equals("false")){
+				throw new BooleanException();
+			}
+		} catch (BooleanException e){
+			bool = "false";
+			System.out.println("Error");
+		}
+		premium = Boolean.parseBoolean(bool);
 		if(premium ==true){
 			Scanner tecs = new Scanner(System.in);
 			System.out.println("Introduce your credit card");
 			credit=tecs.nextLine();
 		}
 		else{
-			System.out.println("later you can be premium");	
+			System.out.println("You can be premium later.");	
 		}
 		}while(error(login, email, password, credit));
 		System.out.println("Welcome!!");
@@ -110,18 +120,14 @@ public class User {
 			String res;
 			if(product.stock > 0)
 				product.stock --;
-		
 			product.mailPlus(product.price);
 			finalPrice(product);
 			System.out.println("SUMMARY");
-			System.out.println("Name:" + product.name );
-			System.out.print("Price:");
-			System.out.printf("%.2f", product.price);
-			System.out.println(product.getMny().toString());
+			Product.stats(product);
 			System.out.println("Change currency?(yes/no)");
 			res=tec.nextLine();
 			if(res.equals("yes")){
-				System.out.println("to what currency?");
+				System.out.println("To what currency?");
 				System.out.println("1-euro");
 				System.out.println("2-dolar");
 				System.out.println("3-pound");
@@ -156,6 +162,7 @@ public class User {
 		System.out.println("Shoping list:");
 		for (int i = 0; i < userProduct.size(); i++){
 			System.out.println(userProduct.get(i).getName());
+	
 		}
 		if (userProduct.size() == 0){
 			System.out.println("There is no item in your list.");
