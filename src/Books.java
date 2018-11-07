@@ -1,24 +1,17 @@
 
 public class Books extends Product {
-	protected enum lan{ es,en,fr,it,ger};
-	protected String title;
-	protected String author;
-	protected int isbn;
-	protected lan language;
+	protected enum lan{ sp,en,fr,it,ger};
+	private String author;
+	private int isbn;
+	private lan language;
 	
-	Books(String title,String author,int isbn, lan language){
-		super();
-		this.title = title;
+	Books(String name, int productId, int stock, float price, money mny, Category cat, String author,int isbn, lan language){
+		super(name, productId, stock, price, mny, cat);
 		this.author = author;
 		this.isbn = isbn;
 		this.language = language;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	
 	public String getAuthor() {
 		return author;
 	}
@@ -38,5 +31,24 @@ public class Books extends Product {
 		this.language = language;
 	}
 	
-	
+	void printLanguage(){
+		switch(language){
+		case sp:
+			System.out.println("Spanish.");
+			break;
+		case en: 
+			System.out.println("English.");
+			break;
+		case fr:
+			System.out.println("French.");
+			break;
+		case it:
+			System.out.println("Italian.");
+			break;
+		case ger:
+			System.out.println("German.");
+			break;
+			
+		}
+	}
 }

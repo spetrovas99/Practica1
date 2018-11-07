@@ -3,14 +3,14 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Product {
-	enum money{euro,dollar,pound};
+	protected enum money{euro,dollar,pound};
 	protected String name;
 	protected int productId;
 	protected int stock;
 	protected float price;
 	protected money mny;
 	User my;
-	Category cat = new Category();
+	Category cat;
 
 	Product(){
 		name = null;
@@ -26,6 +26,7 @@ public class Product {
 		this.stock = stock;
 		this.price = price;
 		cat.products.add(this);
+		this.cat = cat;
 	}
 	public String getName() {
 		return name;
@@ -133,6 +134,11 @@ public class Product {
 		System.out.printf("%.2f", product.price);
 		System.out.println(product.getMny().toString());
 		System.out.println((product.getStock() == 0)?"Out of stock":"Stock: " + product.getStock());
+		if(product.cat.getName().equals("Books")){
+			System.out.print("Language:");
+			Books book = (Books)product;
+			book.printLanguage();
+		}
 		
 	}
 	
