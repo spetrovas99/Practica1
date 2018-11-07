@@ -8,7 +8,6 @@ public class Product {
 	protected int productId;
 	protected int stock;
 	protected float price;
-	//G
 	protected money mny;
 	User my;
 	Category cat;
