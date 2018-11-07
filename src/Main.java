@@ -1,6 +1,5 @@
 import java.util.Scanner;
 public class Main {
-	//jejeje
 	public static void main(String[] args) throws BooleanException {
 		User.sign_up();
 		Scanner tec = new Scanner(System.in);
