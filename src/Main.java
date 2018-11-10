@@ -17,7 +17,7 @@ public class Main {
 		Product s2 = new Product("Ball", 5 , 10 , 16f , Product.money.dollar,c2);
 		Product s3 = new Product("Swimsuit", 6 , 2 , 22.58f , Product.money.euro,c2);
 		
-		Books b1 = new Books("Don Quijote", 7 , 100 , 19.99f , Product.money.euro,c3,"Cevantes", 11111,Books.lan.ger);
+		Books b1 = new Books("Don Quijote", 7 , 100 , 19.99f , Product.money.euro,c3,"Cevantes", 11111,Books.lan.sp);
 		Books b2 = new Books("Hamlet", 8 , 0 , 199.99f , Product.money.pound, c3, "Shakespeare", 22222,Books.lan.en);
 		Books b3 = new Books("The ugly Duckling", 9, 17 , 2.15f , Product.money.pound,c3,"kid", 333333, Books.lan.fr);
 		

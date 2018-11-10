@@ -48,6 +48,7 @@ static void start(){
 						res=tec.nextLine();
 						if(res.equals("yes") && prod != null){
 							User.user.buy(prod);
+							System.out.println("Purchase succesfully.");
 						} 
 					}
 				}
@@ -67,5 +68,6 @@ static void start(){
 		}	
 	}while(!res.equals("6"));
 }
-
 }
+
+// quitar el stock en el summary.

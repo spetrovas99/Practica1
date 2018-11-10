@@ -6,7 +6,7 @@ public class test {
 
 
 	@Test
-	public void test() {
+	public void test() throws BooleanException {
 		//fail("Not yet implemented");
 		Category ropa = new Category();
 		Category c2 = new Category("Sports");
@@ -14,7 +14,7 @@ public class test {
 		assertEquals(product.getName(), "Pepe");
 		//assertEquals(product.mailPlus(13.99f), 13.99);
 		assertEquals(Category.seacrhCategory(), c2);
-		equals(User.error("","","",""));
+		equals(User.error("","","",3,true));
 	}
 
 }
