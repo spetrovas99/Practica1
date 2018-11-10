@@ -9,20 +9,22 @@ public class User {
 	protected String password;
 	protected String login;
 	protected boolean premium;
-	protected String credit;
+	protected int credit;
 	static User user;
 	static List<User> users = new ArrayList<User>();
 	List<Product> userProduct = new ArrayList<Product>();
-	
-	User(){
-		email=null;
-		password=null;
-		login=null;
-		premium=false;
-		credit = null;
-		user = this;
+	 
+	static int devInt (String c){
+		int n ;
+		try{
+			n = Integer.parseInt(c);
+		}catch(NumberFormatException e){
+			n = 0; 
+		}
+		return n;
 	}
-	User(String email, String password,String login,String credit,boolean premium){
+	
+	User(String email, String password,String login,int credit,boolean premium){
 		this.email = email;
 		this.password = password;
 		this.login = login;
@@ -43,7 +45,7 @@ public class User {
 	 public void setPremium(boolean premium) {
 		this.premium = premium;
 	}
-	public String getCredit() {
+	public int getCredit() {
 		return credit;
 	}
 	public void setCredit(String credir) {
@@ -53,7 +55,7 @@ public class User {
 		String email;
 		String login;
 		String password;
-		String credit = null;
+		int credit = 0;
 		boolean premium;
 		do{
 		Scanner tec = new Scanner(System.in);
@@ -65,6 +67,7 @@ public class User {
 		password=tec.nextLine();
 		System.out.println("Join premium?(true/false)");
 		String bool;
+		//
 		try{
 			bool = tec.nextLine();
 			if(!bool.equals("true") && !bool.equals("false")){
@@ -72,22 +75,23 @@ public class User {
 			}
 		} catch (BooleanException e){
 			bool = "false";
-			System.out.println("Error");
+			System.out.println("You are not premium.");
 		}
 		premium = Boolean.parseBoolean(bool);
 		if(premium ==true){
 			Scanner tecs = new Scanner(System.in);
 			System.out.println("Introduce your credit card");
-			credit=tecs.nextLine();
+			String c = tec.nextLine();
+			credit = devInt(c);
 		}
-		else{
-			System.out.println("You can be premium later.");	
-		}
-		}while(error(login, email, password, credit));
+		
+		}while(error(login, email, password, credit, premium));
+		
 		System.out.println("Welcome!!");
-		User usuario = new User(email,password,login,credit,premium);
+		  user = new User(email,password,login,credit,premium);
+	
 	}
-	static boolean error(String login, String email, String password, String credit){
+	static boolean error(String login, String email, String password, int credit, boolean premium) throws BooleanException{
 		boolean aux=false;
 		String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" +
 			      "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
@@ -95,23 +99,19 @@ public class User {
 		if (email != null) {
 			   Matcher matcher = pattern.matcher(email);
 			   if (!matcher.matches()) {
-			     System.out.println("Error");
+			     System.out.println("Token error.");
 			     aux=true;
 			  }
 		}
-		if(password.length()<7){
-			System.out.println("Error");
+		if(password.length()<7 || login.length()<7){
+			System.out.println("Error, introduce again your login");
 			aux= true;
 		}
-		if(login.length()<7){
-			System.out.println("Error");
-			aux=true;
+		if(credit == 0 && premium){
+			aux = true;
+			System.out.println("Credit error.");
 		}
-		if(credit!=null)
-			if(credit.length()<10 ){
-			System.out.println("Error");
-			aux=true;
-		}
+		
 		return aux;
 	}
 	void buy(Product product){
@@ -120,10 +120,19 @@ public class User {
 			String res;
 			if(product.stock > 0)
 				product.stock --;
-			product.mailPlus(product.price);
-			finalPrice(product);
 			System.out.println("SUMMARY");
-			Product.stats(product);
+			System.out.println("Name: " + product.getName());
+			System.out.print("Price:");
+			if(User.user.premium){
+				System.out.printf("%.2f", product.price);
+			}else{
+				System.out.printf("%.2f", product.pricenop);
+			}
+			System.out.println(product.getMny().toString());
+			if(product.cat.getName().equals("Books")){
+				System.out.print("Language:");
+				Books book = (Books)product;
+				book.printLanguage();
 			System.out.println("Change currency?(yes/no)");
 			res=tec.nextLine();
 			if(res.equals("yes")){
@@ -135,34 +144,51 @@ public class User {
 				switch(res){
 				case"1":
 					product.changeMoney(product.mny, Product.money.euro);
+					if(premium){
 					System.out.printf("%.2f", product.price);
 					System.out.println(product.getMny().toString());
+					}else{
+						System.out.printf("%.2f", product.pricenop);
+						System.out.println(product.getMny().toString());
+					}
 					break;
 				case "2":
 					product.changeMoney(product.mny, Product.money.dollar);
+					if(premium){
 					System.out.printf("%.2f", product.price);
 					System.out.println(product.getMny().toString());
+					}else{
+						System.out.printf("%.2f", product.pricenop);
+						System.out.println(product.getMny().toString());
+					}
 					break;
 				case "3":
 					product.changeMoney(product.mny,Product.money.pound );
+					if(premium){
 					System.out.printf("%.2f", product.price);
 					System.out.println(product.getMny().toString());
+					}else{
+						System.out.printf("%.2f", product.pricenop);
+						System.out.println(product.getMny().toString());
+					}
 					break;
 				}
 			}
-		
+		}
 		user.userProduct.add(product);
 	}
-	void finalPrice(Product product){
-		if (!getPremium()){
-			product.price += product.mailPlus(product.price);	
-		}
-	}
-	void printUserProducts(){
+	void printUserProducts(){ 
+		 
 		System.out.println("Shoping list:");
 		for (int i = 0; i < userProduct.size(); i++){
-			System.out.println(userProduct.get(i).getName());
-	
+			System.out.print(userProduct.get(i).getName() + " ");
+			if(premium){
+			System.out.printf("%.2f",userProduct.get(i).getPrice() );
+			System.out.println(" " + userProduct.get(i).getMny().toString());
+			}else{
+				System.out.printf("%.2f",userProduct.get(i).getPricenop() );
+				System.out.println(" " + userProduct.get(i).getMny().toString());
+			}
 		}
 		if (userProduct.size() == 0){
 			System.out.println("There is no item in your list.");

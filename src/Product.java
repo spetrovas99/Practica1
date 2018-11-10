@@ -8,6 +8,7 @@ public class Product {
 	protected int productId;
 	protected int stock;
 	protected float price;
+	protected float pricenop;
 	protected money mny;
 	User my;
 	Category cat;
@@ -17,6 +18,7 @@ public class Product {
 		productId = 0;
 		stock = 0;
 		price = 0;
+		pricenop = 0;
 		mny = null;
 	}
 	Product(String name, int productId, int stock, float price, money mny, Category cat){
@@ -25,6 +27,7 @@ public class Product {
 		this.productId = productId;
 		this.stock = stock;
 		this.price = price;
+		this.pricenop = price + (price*10)/100;
 		cat.products.add(this);
 		this.cat = cat;
 	}
@@ -51,11 +54,15 @@ public class Product {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-
+	public float getPricenop() {
+		return pricenop;
+	}
+	public void setPricenop(float pricenop) {
+		this.pricenop = pricenop;
+	}
 	public float getPrice() {
 		return price;
 	}
-
 	public void setPrice(float price) {
 		this.price = price;
 	}
@@ -74,56 +81,93 @@ public class Product {
 		this.mny = mny;
 	}
 	void changeMoney(money origin,money destiny){
-		if (origin.toString().equals("euro")){
-			switch(destiny.toString()){
-			case "euro":
-				break;
-			case "dollar":
-				price *= 1.15;
-				mny = money.dollar;
-				break;
-			case "pound":
-				price*= 0.88;
-				mny = money.pound;
-				break;
+		if(User.user.premium){
+			if (origin.toString().equals("euro")){
+				switch(destiny.toString()){
+				case "euro":
+					break;
+				case "dollar":
+					price *= 1.15;
+					mny = money.dollar;
+					break;
+				case "pound":
+					price*= 0.88;
+					mny = money.pound;
+					break;
+				}
+			}
+			if(origin.toString().equals("dollar")){
+				switch(destiny.toString()){
+				case "dollar":
+					break;
+				case "euro":
+					price*=0.87;
+					mny = money.euro;
+					break;
+				case "pound":
+					price*=0.77;
+					mny = money.pound;
+					break;
+				}
+			}
+			if(origin.toString().equals("pound")){
+				switch(destiny.toString()){
+				case "pound":
+					break;
+				case "dollar":
+					price*=1.31;
+					mny = money.dollar;
+					break;
+				case "euro":
+					price*=1.13;
+					mny = money.euro;
+					break;
+				}
+			}
+		}else{
+			if (origin.toString().equals("euro")){
+				switch(destiny.toString()){
+				case "euro":
+					break;
+				case "dollar":
+					pricenop *= 1.15;
+					mny = money.dollar;
+					break;
+				case "pound":
+					pricenop*= 0.88;
+					mny = money.pound;
+					break;
+				}
+			}
+			if(origin.toString().equals("dollar")){
+				switch(destiny.toString()){
+				case "dollar":
+					break;
+				case "euro":
+					pricenop*=0.87;
+					mny = money.euro;
+					break;
+				case "pound":
+					pricenop*=0.77;
+					mny = money.pound;
+					break;
+				}
+			}
+			if(origin.toString().equals("pound")){
+				switch(destiny.toString()){
+				case "pound":
+					break;
+				case "dollar":
+					pricenop*=1.31;
+					mny = money.dollar;
+					break;
+				case "euro":
+					pricenop*=1.13;
+					mny = money.euro;
+					break;
+				}
 			}
 		}
-		if(origin.toString().equals("dollar")){
-			switch(destiny.toString()){
-			case "dollar":
-				break;
-			case "euro":
-				price*=0.87;
-				mny = money.euro;
-				break;
-			case "pound":
-				price*=0.77;
-				mny = money.pound;
-				break;
-			}
-		}
-		if(origin.toString().equals("pound")){
-			switch(destiny.toString()){
-			case "pound":
-				break;
-			case "dollar":
-				price*=1.31;
-				mny = money.dollar;
-				break;
-			case "euro":
-				price*=1.13;
-				mny = money.euro;
-				break;
-			}
-		}
-	}
-	float mailPlus(float price){
-		float cost = 0;
-		if(price<30)
-			cost=+(10*price/100);
-		else
-			cost=0;
-		return cost;
 	}
 	
 	static void stats(Product product){
@@ -131,7 +175,11 @@ public class Product {
 		String res;
 		System.out.println("Name: " + product.getName());
 		System.out.print("Price:");
-		System.out.printf("%.2f", product.price);
+		if(User.user.premium){
+			System.out.printf("%.2f", product.price);
+		}else{
+			System.out.printf("%.2f", product.pricenop);
+		}
 		System.out.println(product.getMny().toString());
 		System.out.println((product.getStock() == 0)?"Out of stock":"Stock: " + product.getStock());
 		if(product.cat.getName().equals("Books")){
