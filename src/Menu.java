@@ -4,6 +4,9 @@ public class Menu {
 static void start(){
 	Scanner tec = new Scanner(System.in);
 	String res;
+	
+	User.code();
+	System.out.println("Welcome!!");
 	do{
 		System.out.println("1-Search category.");
 		System.out.println("2-Search product.");

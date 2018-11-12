@@ -67,7 +67,6 @@ public class User {
 		password=tec.nextLine();
 		System.out.println("Join premium?(true/false)");
 		String bool;
-		//
 		try{
 			bool = tec.nextLine();
 			if(!bool.equals("true") && !bool.equals("false")){
@@ -84,13 +83,20 @@ public class User {
 			String c = tec.nextLine();
 			credit = devInt(c);
 		}
-		
 		}while(error(login, email, password, credit, premium));
-		
-		System.out.println("Welcome!!");
 		  user = new User(email,password,login,credit,premium);
 	
 	}
+	static void code(){
+		 Scanner tec = new Scanner(System.in);
+		 
+		 System.out.println("Enter your code :");
+		 int num = tec.nextInt();
+		 if(num != File.x){
+			 System.out.println("sorry, your code is invalid, introduced again.");
+			 code();
+		 }
+	 }
 	static boolean error(String login, String email, String password, int credit, boolean premium) throws BooleanException{
 		boolean aux=false;
 		String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" +
