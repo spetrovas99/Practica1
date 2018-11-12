@@ -2,6 +2,8 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) throws BooleanException {
 		User.sign_up();
+		File.newemail();
+		File.newemail2();
 		Scanner tec = new Scanner(System.in);
 	
 		Category c1 = new Category("Clothes");
@@ -26,9 +28,7 @@ public class Main {
 		Product f3 = new Product("Ready player one", 12 , 2 , 6.65f , Product.money.pound,c4);
 		Product f4 = new Product("Total recall", 13 , 1 , 30.43f , Product.money.euro,c4);
 	
-		Menu.start();
-			
-				
+		Menu.start();		
 	}
 			
 			
