@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.List;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Product {
 	protected enum money{euro,dollar,pound};
@@ -189,5 +192,10 @@ public class Product {
 		}
 		
 	}
-	
+	static String time(){
+		Calendar cal = Calendar.getInstance(); 
+		cal.add(Calendar.DAY_OF_MONTH, 15);
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+		return (formato.format(cal.getTime()));
+	}
 }
