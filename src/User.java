@@ -89,13 +89,17 @@ public class User {
 	}
 	static void code(){
 		 Scanner tec = new Scanner(System.in);
-		 
-		 System.out.println("Enter your code :");
+		 boolean good = false;
+		 System.out.println("Check your email and enter your code :");
 		 int num = tec.nextInt();
-		 if(num != File.x){
-			 System.out.println("sorry, your code is invalid, introduced again.");
-			 code();
-		 }
+		 do{
+			 if(num != File.x){
+				 System.out.println("sorry, your code is invalid, introduced again.");
+			 }else{
+				 good = true;
+			 }
+		 }while(!good);
+		 System.out.println("Check your email.");
 	 }
 	static boolean error(String login, String email, String password, int credit, boolean premium) throws BooleanException{
 		boolean aux=false;
@@ -121,11 +125,11 @@ public class User {
 		return aux;
 	}
 	void buy(Product product){
-		
 			Scanner tec = new Scanner(System.in);
 			String res;
-			if(product.stock > 0)
+			if(product.stock > 0){
 				product.stock --;
+			}
 			System.out.println("SUMMARY");
 			System.out.println("Name: " + product.getName());
 			System.out.print("Price:");
@@ -139,6 +143,7 @@ public class User {
 				System.out.print("Language:");
 				Books book = (Books)product;
 				book.printLanguage();
+			}
 			System.out.println("Change currency?(yes/no)");
 			res=tec.nextLine();
 			if(res.equals("yes")){
@@ -180,7 +185,6 @@ public class User {
 					break;
 				}
 			}
-		}
 		user.userProduct.add(product);
 	}
 	void printUserProducts(){ 

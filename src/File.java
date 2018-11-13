@@ -33,6 +33,7 @@ public class File {
 		try{
 			fw = new FileWriter("cordial.txt");
 			fw.write("AMAZON" + "\r\n" +"From: hello@amazons.com" + "\r\n"+ "To: " + User.user.email + "\r\n");
+			fw.write("Subject: Wellcome." + "\r\n" );
 			fw.write("Dear " + User.user.login + "\r\n");
 			fw.write("Completed registration." + "\r\n" + "Your profile is activated."+ "\r\n");
 			fw.write("Do not respond to this message, it is automatic.");
@@ -43,6 +44,28 @@ public class File {
 				fw.close();
 			}catch(Exception e){
 				System.out.println("ERROR, your file has nt been closed.");
+			}
+		}
+	 }
+	 static void tiquet(Product product){
+		 FileWriter fw = null;
+		try{
+			fw = new FileWriter("tiquet-" + product.getName() + ".txt");
+			fw.write("AMAZON" + "\r\n" +"From: hello@amazons.com" + "\r\n"+ "To: " + User.user.email + "\r\n");
+			fw.write("Subject: Your purchase" + "\r\n" );
+			fw.write("Hello " + User.user.login + "\r\n");
+			fw.write("SUMMARY" + "\r\n" );
+			fw.write("Name:" + product.getName() + "\r\n");
+			fw.write((User.user.getPremium())? "Price: " + String.format("%.2f",product.getPrice()) :"Price: " + String.format("%.2f",product.getPricenop()));
+			fw.write(product.getMny().toString() + "\r\n");
+			fw.write("Deliver date: " + Product.time());
+		}catch(Exception e){
+			System.out.println("Error");
+		}finally{
+			try{
+				fw.close();
+			}catch(Exception e){
+				System.out.println("ERROR, your file hasnt been closed.");
 			}
 		}
 	 }

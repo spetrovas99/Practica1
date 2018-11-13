@@ -51,7 +51,8 @@ static void start(){
 						res=tec.nextLine();
 						if(res.equals("yes") && prod != null){
 							User.user.buy(prod);
-							System.out.println("Purchase succesfully.");
+							File.tiquet(prod);
+							System.out.println("Check your email");
 						} 
 					}
 				}
@@ -72,5 +73,3 @@ static void start(){
 	}while(!res.equals("6"));
 }
 }
-
-// quitar el stock en el summary.
