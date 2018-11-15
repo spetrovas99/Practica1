@@ -1,7 +1,7 @@
 # Practica1
-Práctica de Java.
+Java project
 
-# How does it work.
+# How does it work?
 
 I have created 9 classes, with different methods each one.
 ### Products:
@@ -13,11 +13,11 @@ The Product class have as attributes name, productId, stock, price, price (premi
 ### Category:
 The categories have only one attribute, the name, and two ArrayList. One for all the categories (static) and the other for the products of each category.
 - The printProducts method print the products of one category.
-- The printCategoty method print all the categories.
+- The printCategory method print all the categories.
 - The searchCategory method the search category method searches all the categories for any match with the name that the user has entered by keyboard.
 - The searchProducts method works the same as the searchCategory method but at the time of implementing it, the category is searched first and then the product.
 ### User:
-The User class have as attributes name, email,login, password, premium , credit and one ArrayList one for the products of users.
+The User class have as attributes name, email, login, password, premium, credit and one ArrayList for the products of users.
 - The sign_up method the user enters the login and password by keyboard. In addition, the program asks if you want to be premium. If you say yes, you have to enter the credit card, we do this so that when you buy a product you will not be charged for shipping costs that are 10% of the final price of the product.
 - The error method notifies you if you have miswritten the email or if your password or login has a length less than 7.
 - The code method  compares the code entered by the user and the code received in the mail (file). you will not be able to access the app until you enter the correct code.
