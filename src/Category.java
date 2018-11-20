@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Category {
+public class Category extends ChangeLanguage {
 	private String name;
 	
 	static List<Category> categories = new ArrayList<Category>();
@@ -36,7 +36,7 @@ public class Category {
 		Scanner tec = new Scanner(System.in);
 		String res;
 		Category cat = null;
-		System.out.println("Search category: ");
+		System.out.println(searchCategory);
 		res = tec.nextLine();
 		boolean esta = false;
 		int p = 0;
@@ -55,7 +55,7 @@ public class Category {
 	Product searchProduct(){
 		Product product= null;
 		String res;
-		System.out.println("Search product: ");
+		System.out.println(searchProduct);
 		Scanner tec = new Scanner(System.in);
 		res = tec.nextLine();
 		boolean esta = false;
@@ -72,7 +72,7 @@ public class Category {
 			product=products.get(p);
 		}
 		else{
-			System.out.println("It has not been found.");
+			System.out.println(notFound);
 		}
 		return product;
 	}		 
