@@ -4,14 +4,14 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class User {
+public class User extends ChangeLanguage{
 	protected String email;
 	protected String password;
 	protected String login;
 	protected boolean premium;
 	protected int credit;
 	static User user;
-	static List<User> users = new ArrayList<User>();
+
 	List<Product> userProduct = new ArrayList<Product>();
 	 
 	static int devInt (String c){
@@ -59,13 +59,13 @@ public class User {
 		boolean premium;
 		do{
 		Scanner tec = new Scanner(System.in);
-		System.out.println("Introduce your email");
+		System.out.println(introduceEmail);
 		email=tec.nextLine();
-		System.out.println("Indroduce your user(at least 7 characters)");
+		System.out.println(introduceUser);
 		login=tec.nextLine();
-		System.out.println("Indroduce tu contraseña(at least 7 characters)");
+		System.out.println(introducePassword);
 		password=tec.nextLine();
-		System.out.println("Join premium?(true/false)");
+		System.out.println(isPremium);
 		String bool;
 		try{
 			bool = tec.nextLine();
@@ -74,12 +74,12 @@ public class User {
 			}
 		} catch (BooleanException e){
 			bool = "false";
-			System.out.println("You are not premium.");
+			System.out.println(notPremium);
 		}
 		premium = Boolean.parseBoolean(bool);
 		if(premium ==true){
 			Scanner tecs = new Scanner(System.in);
-			System.out.println("Introduce your credit card");
+			System.out.println(introduceCredit);
 			String c = tec.nextLine();
 			credit = devInt(c);
 		}
@@ -90,16 +90,16 @@ public class User {
 	static void code(){
 		 Scanner tec = new Scanner(System.in);
 		 boolean good = false;
-		 System.out.println("Check your email and enter your code :");
+		 System.out.println(checkEmailCode);
 		 int num = tec.nextInt();
 		 do{
 			 if(num != File.x){
-				 System.out.println("sorry, your code is invalid, introduced again.");
+				 System.out.println(badCode);
 			 }else{
 				 good = true;
 			 }
 		 }while(!good);
-		 System.out.println("Check your email.");
+		 System.out.println(checkEmail);
 	 }
 	static boolean error(String login, String email, String password, int credit, boolean premium) throws BooleanException{
 		boolean aux=false;
@@ -114,12 +114,12 @@ public class User {
 			  }
 		}
 		if(password.length()<7 || login.length()<7){
-			System.out.println("Error, introduce again your login");
+			System.out.println(badLogin);
 			aux= true;
 		}
 		if(credit == 0 && premium){
 			aux = true;
-			System.out.println("Credit error.");
+			System.out.println(badCredit);
 		}
 		
 		return aux;
@@ -130,9 +130,9 @@ public class User {
 			if(product.stock > 0){
 				product.stock --;
 			}
-			System.out.println("SUMMARY");
-			System.out.println("Name: " + product.getName());
-			System.out.print("Price:");
+			System.out.println(summary);
+			System.out.println( name + product.getName());
+			System.out.print(price);
 			if(User.user.premium){
 				System.out.printf("%.2f", product.price);
 			}else{
@@ -140,14 +140,14 @@ public class User {
 			}
 			System.out.println(product.getMny().toString());
 			if(product.cat.getName().equals("Books")){
-				System.out.print("Language:");
+				System.out.print(language);
 				Books book = (Books)product;
 				book.printLanguage();
 			}
-			System.out.println("Change currency?(yes/no)");
+			System.out.println(changeCurrency);
 			res=tec.nextLine();
 			if(res.equals("yes")){
-				System.out.println("To what currency?");
+				System.out.println(whatCurrency);
 				System.out.println("1-euro");
 				System.out.println("2-dolar");
 				System.out.println("3-pound");
@@ -189,7 +189,7 @@ public class User {
 	}
 	void printUserProducts(){ 
 		 
-		System.out.println("Shoping list:");
+		System.out.println(shoppingList);
 		for (int i = 0; i < userProduct.size(); i++){
 			System.out.print(userProduct.get(i).getName() + " ");
 			if(premium){
@@ -201,7 +201,7 @@ public class User {
 			}
 		}
 		if (userProduct.size() == 0){
-			System.out.println("There is no item in your list.");
+			System.out.println(noItem);
 		}
 	}
 }

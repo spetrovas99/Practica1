@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Product {
+public class Product extends ChangeLanguage{
 	protected enum money{euro,dollar,pound};
 	protected String name;
 	protected int productId;
@@ -77,6 +77,7 @@ public class Product {
 			return "£";
 		case "dollar":
 			return "$";
+		default:
 		}
 		return null;
 	}
@@ -97,6 +98,7 @@ public class Product {
 					price*= 0.88;
 					mny = money.pound;
 					break;
+				default:
 				}
 			}
 			if(origin.toString().equals("dollar")){
@@ -111,6 +113,7 @@ public class Product {
 					price*=0.77;
 					mny = money.pound;
 					break;
+				default:
 				}
 			}
 			if(origin.toString().equals("pound")){
@@ -125,6 +128,7 @@ public class Product {
 					price*=1.13;
 					mny = money.euro;
 					break;
+				default:
 				}
 			}
 		}else{
@@ -140,6 +144,7 @@ public class Product {
 					pricenop*= 0.88;
 					mny = money.pound;
 					break;
+				default:
 				}
 			}
 			if(origin.toString().equals("dollar")){
@@ -154,6 +159,8 @@ public class Product {
 					pricenop*=0.77;
 					mny = money.pound;
 					break;
+				default:
+					
 				}
 			}
 			if(origin.toString().equals("pound")){
@@ -168,32 +175,31 @@ public class Product {
 					pricenop*=1.13;
 					mny = money.euro;
 					break;
+				default: 
 				}
 			}
 		}
 	}
 	
 	static void stats(Product product){
-		Scanner tec = new Scanner(System.in);
-		String res;
-		System.out.println("Name: " + product.getName());
-		System.out.print("Price:");
+		System.out.println( ChangeLanguage.name + product.getName());
+		System.out.print(ChangeLanguage.price);
 		if(User.user.premium){
 			System.out.printf("%.2f", product.price);
 		}else{
 			System.out.printf("%.2f", product.pricenop);
 		}
-		System.out.println(product.getMny().toString());
-		System.out.println((product.getStock() == 0)?"Out of stock":"Stock: " + product.getStock());
-		if(product.cat.getName().equals("Books")){
-			System.out.print("Language:");
+		System.out.println(product.getMny());
+		System.out.println((product.getStock() == 0)? notStock:"Stock: " + product.getStock());
+		if(product.cat.getName().equals(books)){
+			System.out.print(language);
 			Books book = (Books)product;
 			book.printLanguage();
 		}
 		
 	}
 	static String time(){
-		Calendar cal = Calendar.getInstance(); 
+		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DAY_OF_MONTH, 15);
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
 		return (formato.format(cal.getTime()));

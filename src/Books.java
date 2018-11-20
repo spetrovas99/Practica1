@@ -1,6 +1,6 @@
 
 public class Books extends Product {
-	protected enum lan{ sp,en,fr,it,ger};
+	protected enum lan{sp,en,fr,it,ger};
 	private String author;
 	private int isbn;
 	private lan language;
@@ -34,19 +34,19 @@ public class Books extends Product {
 	void printLanguage(){
 		switch(language){
 		case sp:
-			System.out.println("Spanish.");
+			System.out.println(ChangeLanguage.spanish);
 			break;
 		case en: 
-			System.out.println("English.");
+			System.out.println(ChangeLanguage.english);
 			break;
 		case fr:
-			System.out.println("French.");
+			System.out.println(ChangeLanguage.french);
 			break;
 		case it:
-			System.out.println("Italian.");
+			System.out.println(ChangeLanguage.italian);
 			break;
 		case ger:
-			System.out.println("German.");
+			System.out.println(ChangeLanguage.german);
 			break;
 			
 		}

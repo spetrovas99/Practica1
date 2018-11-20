@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
-public class Menu {
+public class Menu extends ChangeLanguage {
 static void start(){
 	Scanner tec = new Scanner(System.in);
 	String res;
 	
 	User.code();
-	System.out.println("Welcome!!");
+	System.out.println(welcome);
 	do{
-		System.out.println("1-Search category.");
-		System.out.println("2-Search product.");
-		System.out.println("3-Buy");
-		System.out.println("4-Show catalog.");
-		System.out.println("5-Show my product list.");
-		System.out.println("6-Close.");
+		System.out.println("1-" + searchCategory);
+		System.out.println("2-" + searchProduct);
+		System.out.println("3-" + buy);
+		System.out.println("4-" + showCatalog);
+		System.out.println("5-" + showProductList);
+		System.out.println("6-" + close);
 		res = tec.nextLine();
 		switch(res){
 		case "1":
 			Category c = Category.seacrhCategory();
 			if (c == null) {
-				System.out.println("It has not been found.");
+				System.out.println(notFound);
 			} else {
 				c.printProducts();
 			}
@@ -27,7 +27,7 @@ static void start(){
 		case "2":
 			Category search = Category.seacrhCategory();
 			if (search == null){
-				System.out.println("It has not been found.");
+				System.out.println(notFound);
 			}
 			else{
 			search.printProducts();
@@ -38,7 +38,7 @@ static void start(){
 		case "3":
 			Category searches = Category.seacrhCategory();
 			if (searches == null){
-				System.out.println("It has not been found.");
+				System.out.println(notFound);
 			}
 			else{
 			searches.printProducts();
@@ -47,12 +47,12 @@ static void start(){
 				Product prod = searches.searchProduct();
 				if(prod != null){
 					if(prod.getStock() > 0){
-						System.out.println("Buy?(yes/no)");
+						System.out.println(buyQ);
 						res=tec.nextLine();
 						if(res.equals("yes") && prod != null){
 							User.user.buy(prod);
 							File.tiquet(prod);
-							System.out.println("Check your email");
+							System.out.println(checkEmail);
 						} 
 					}
 				}
@@ -65,10 +65,10 @@ static void start(){
 			User.user.printUserProducts();
 			break;
 		case "6":
-			System.out.println("See you later!");
+			System.out.println(bye);
 			break;
 		default:
-			System.out.println("Choose from 1 to 6.");
+			System.out.println(choose);
 		}	
 	}while(!res.equals("6"));
 }
