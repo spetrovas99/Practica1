@@ -1,9 +1,7 @@
 
 public class BooleanException extends Exception {
-	BooleanException(){
-		
+	BooleanException(){	
 	}
-	
 	BooleanException(String message){
 		super(message);
 	}
