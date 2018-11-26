@@ -1,8 +1,8 @@
 import java.util.Properties;
 import java.io.FileReader;
 public class ChangeLanguage {
-	static Properties esp = new Properties();
-	static Properties en = new Properties();
+	static protected Properties esp = new Properties();
+	static protected Properties en = new Properties();
 	
 	static protected String introduceEmail;
 	static protected String introduceUser;
@@ -107,7 +107,7 @@ public class ChangeLanguage {
 			 italian = esp.getProperty("italian");
 			 german = esp.getProperty("german");
 			 french = esp.getProperty("french");
-			 
+
 		}catch(Exception e){
 			System.out.println("error");
 		}finally{
@@ -145,7 +145,7 @@ public class ChangeLanguage {
 			 searchCategory = en.getProperty("searchCategory");
 			 searchProduct = en.getProperty("searchProduct");
 			 notFound = en.getProperty("notFound");
-			 welcome = en.getProperty("elcome");
+			 welcome = en.getProperty("welcome");
 			 buy = en.getProperty("buy");
 			 showCatalog = en.getProperty("showCatalog");
 			 showProductList = en.getProperty("showProductList");
@@ -154,7 +154,7 @@ public class ChangeLanguage {
 			 bye = en.getProperty("bye");
 			 choose = en.getProperty("choose");
 			 notStock = en.getProperty("notStock");
-			 clothes= en.getProperty(clothes);
+			 clothes= en.getProperty("clothes");
 			 sports = en.getProperty("sports");
 			 books = en.getProperty("books");
 			 films = en.getProperty("films");
@@ -171,7 +171,7 @@ public class ChangeLanguage {
 			 italian = en.getProperty("italian");
 			 german = en.getProperty("german");
 			 french = en.getProperty("french");
-			 
+		
 		}catch(Exception e){
 			System.out.println("error");
 		}finally{

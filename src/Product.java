@@ -1,9 +1,5 @@
-import java.util.Scanner;
-import java.util.List;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Product extends ChangeLanguage{
 	protected enum money{euro,dollar,pound};
@@ -13,7 +9,6 @@ public class Product extends ChangeLanguage{
 	protected float price;
 	protected float pricenop;
 	protected money mny;
-	User my;
 	Category cat;
 
 	Product(){
@@ -24,6 +19,7 @@ public class Product extends ChangeLanguage{
 		pricenop = 0;
 		mny = null;
 	}
+	
 	Product(String name, int productId, int stock, float price, money mny, Category cat){
 		this.mny = mny;
 		this.name = name;
@@ -85,7 +81,7 @@ public class Product extends ChangeLanguage{
 		this.mny = mny;
 	}
 	void changeMoney(money origin,money destiny){
-		if(User.user.premium){
+		if(User.getUser().premium){
 			if (origin.toString().equals("euro")){
 				switch(destiny.toString()){
 				case "euro":
@@ -184,7 +180,7 @@ public class Product extends ChangeLanguage{
 	static void stats(Product product){
 		System.out.println( ChangeLanguage.name + product.getName());
 		System.out.print(ChangeLanguage.price);
-		if(User.user.premium){
+		if(User.getUser().premium){
 			System.out.printf("%.2f", product.price);
 		}else{
 			System.out.printf("%.2f", product.pricenop);
@@ -198,6 +194,7 @@ public class Product extends ChangeLanguage{
 		}
 		
 	}
+	
 	static String time(){
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DAY_OF_MONTH, 15);
