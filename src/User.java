@@ -10,8 +10,15 @@ public class User extends ChangeLanguage{
 	protected String login;
 	protected boolean premium;
 	protected int credit;
-	static User user;
-
+	private static User user;
+	private User(){
+	}
+	public static User getUser(){
+		if (user ==null){
+			user = new User();
+		}
+			return user;
+	}
 	List<Product> userProduct = new ArrayList<Product>();
 	 
 	static int devInt (String c){
@@ -48,10 +55,10 @@ public class User extends ChangeLanguage{
 	public int getCredit() {
 		return credit;
 	}
-	public void setCredit(String credir) {
-		this.credit=credit;
+	public void setCredit(int credit) {
+		this.credit = credit;
 	}
-	static void sign_up() throws BooleanException{
+	static void signUp() throws BooleanException{
 		String email;
 		String login;
 		String password;
@@ -77,7 +84,7 @@ public class User extends ChangeLanguage{
 			System.out.println(notPremium);
 		}
 		premium = Boolean.parseBoolean(bool);
-		if(premium ==true){
+		if(premium == true){
 			Scanner tecs = new Scanner(System.in);
 			System.out.println(introduceCredit);
 			String c = tec.nextLine();
@@ -138,7 +145,7 @@ public class User extends ChangeLanguage{
 			}else{
 				System.out.printf("%.2f", product.pricenop);
 			}
-			System.out.println(product.getMny().toString());
+			System.out.println(product.getMny());
 			if(product.cat.getName().equals("Books")){
 				System.out.print(language);
 				Books book = (Books)product;
@@ -183,6 +190,7 @@ public class User extends ChangeLanguage{
 						System.out.println(product.getMny().toString());
 					}
 					break;
+					default:
 				}
 			}
 		user.userProduct.add(product);
@@ -194,13 +202,13 @@ public class User extends ChangeLanguage{
 			System.out.print(userProduct.get(i).getName() + " ");
 			if(premium){
 			System.out.printf("%.2f",userProduct.get(i).getPrice() );
-			System.out.println(" " + userProduct.get(i).getMny().toString());
+			System.out.println(" " + userProduct.get(i).getMny());
 			}else{
 				System.out.printf("%.2f",userProduct.get(i).getPricenop() );
-				System.out.println(" " + userProduct.get(i).getMny().toString());
+				System.out.println(" " + userProduct.get(i).getMny());
 			}
 		}
-		if (userProduct.size() == 0){
+		if (userProduct.isEmpty()){
 			System.out.println(noItem);
 		}
 	}

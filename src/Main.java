@@ -1,21 +1,8 @@
 import java.util.Scanner;
 public class Main extends ChangeLanguage{
 	public static void main(String[] args) throws BooleanException  {
-		Scanner tec = new Scanner(System.in);
-		System.out.println("Choose language");
-		System.out.println("1-Español");
-		System.out.println("2-English");
-		int x = tec.nextInt();
-		switch(x){
-		case 1:
-			ChangeLanguage.changeSpanish();
-			break;
-		case 2:
-			ChangeLanguage.changeEnglish();
-			break;
-		default:
-		}
-		User.sign_up();
+		Menu.language();
+		User.signUp();
 		File.newemail();
 		File.newemail2();
 	
@@ -43,11 +30,5 @@ public class Main extends ChangeLanguage{
 	
 		Menu.start();		
 	}
-			
-			
-		
-			
-		
-
 	
 }
