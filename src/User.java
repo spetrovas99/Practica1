@@ -100,7 +100,7 @@ public class User extends ChangeLanguage{
 		 System.out.println(checkEmailCode);
 		 int num = tec.nextInt();
 		 do{
-			 if(num != File.x){
+			 if(num != LoginEmail.x){
 				 System.out.println(badCode);
 			 }else{
 				 good = true;
