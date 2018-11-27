@@ -72,7 +72,8 @@ public class Menu extends ChangeLanguage {
 							res=tec.nextLine();
 							if(res.equals("yes") && prod != null){
 								User.getUser().buy(prod);
-								File.tiquet(prod);
+								TicketEmail nuevo = new TicketEmail(prod);
+								nuevo.sendMail();
 								System.out.println(checkEmail);
 							} 
 						}

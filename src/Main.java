@@ -3,8 +3,10 @@ public class Main extends ChangeLanguage{
 	public static void main(String[] args) throws BooleanException  {
 		Menu.language();
 		User.signUp();
-		File.newemail();
-		File.newemail2();
+		LoginEmail nuevo2 = new LoginEmail();
+		nuevo2.sendMail();
+		LoginGoodEmail nuevo = new LoginGoodEmail();
+		nuevo.sendMail();
 	
 		Category c1 = new Category(clothes);
 		Category c2 = new Category(sports);
