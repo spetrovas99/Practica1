@@ -52,7 +52,7 @@ public class Category extends ChangeLanguage {
 		}
 		return cat;
 	}
-	Product searchProduct(){
+	 Product searchProduct(){
 		Product product= null;
 		String res;
 		System.out.println(searchProduct);
@@ -75,5 +75,5 @@ public class Category extends ChangeLanguage {
 			System.out.println(notFound);
 		}
 		return product;
-	}		 
+	}	 
 }
