@@ -15,8 +15,8 @@ public class LoginEmail implements Files{
 		 FileWriter fw = null;
 		try{
 			fw = new FileWriter("Amazon.txt");
-			fw.write("AMAZON" + "\r\n" +"From: hello@amazons.com" + "\r\n"+ "To: " + Controller.enterE + "\r\n");
-			fw.write("Hi " + Controller.enterU + "\r\n");
+			fw.write("AMAZON" + "\r\n" +"From: hello@amazons.com" + "\r\n"+ "To: " + User.getUser().login + "\r\n");
+			fw.write("Hi " + User.getUser().email + "\r\n");
 			fw.write("Use this code for activate your account "+ x + "\r\n");
 			fw.write("1-Copy this code." +  "\r\n" + "2-Go to the application." + "\r\n" + "3-Paste the code." + "\r\n" );
 			fw.write("Do not respond to this message, it is automatic.");

@@ -15,17 +15,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.ContextMenuEvent;
 
 public class Controller {
-static String enterE;
-static String enterU;
+static String user;
+static String email;
     @FXML
     public TextField enterEmail;
 
     @FXML
     public TextField enterUser;
 
-    @FXML
-    private Label hiId;
-    
     @FXML
     private PasswordField enterPassword;
 
@@ -67,7 +64,7 @@ static String enterU;
 		 error.setVisible(false);
 	}
     	
-    	String email = enterEmail.getText();
+		email = enterEmail.getText();
     	String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" +
 			      "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
 		Pattern pattern = Pattern.compile(emailPattern);
@@ -83,20 +80,17 @@ static String enterU;
 			 error.setVisible(true);
 		 }else{
 			 check.setVisible(true);
-			// GraphicInterface.esperar(2000);
 			 LoginEmail x = new LoginEmail();
 			 x.sendMail();
-			 enterE = enterEmail.getText();
-			 enterU = enterUser.getText();
+			 user = enterUser.getText();
+			 email = enterEmail.getText();
 			 GraphicInterface.todas.signUp.close();
-			 modify();
 			 GraphicInterface.todas.email.show();
+			 GraphicInterface.todas.code.show();
 		 }
 	
     }
-    void modify(){
-    	hiId.setText(" hola amigos mios :)");
-    }
+    
     @FXML
     void premiumButtonPressed(ActionEvent event) {
     		enterCreditCard.setVisible(true);

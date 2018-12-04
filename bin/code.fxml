@@ -22,6 +22,11 @@
                   <Font name="Andale Mono" size="13.0" />
                </font>
             </Label>
+            <Label layoutX="218.0" layoutY="87.0" text="Check your email.">
+               <font>
+                  <Font name="Andale Mono" size="13.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>

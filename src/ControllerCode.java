@@ -16,18 +16,15 @@ public class ControllerCode {
     private Label badCode;
     
     @FXML
-    void code(ActionEvent event) {
-    	 boolean good = false;
-		 do{
-			 if(!enterCode.getText().equals(LoginEmail.x)){
-				 badCode.setVisible(true);
-			 }else{
-				 good = true;
-			 }
-		 }while(!good);
-		 GraphicInterface.todas.code.close();
-		 GraphicInterface.todas.menu.show();
-		 
+    void code(ActionEvent event) { 
+    	badCode.setVisible(false);
+		if(!enterCode.getText().equals(LoginEmail.x + "")){
+			enterCode.clear();
+			badCode.setVisible(true);
+		}else{
+			GraphicInterface.todas.code.close();
+			GraphicInterface.todas.menu.show();
+		}
     }
 
 }

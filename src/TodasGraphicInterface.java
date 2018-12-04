@@ -34,7 +34,7 @@ public class TodasGraphicInterface extends Application {
 		code.setScene(scene1);
 		
 		menu = new Stage();
-		URL res2 = getClass().getClassLoader().getResource("code.fxml");
+		URL res2 = getClass().getClassLoader().getResource("menu.fxml");
 		Parent root2 = FXMLLoader.load(res2);
 		Scene scene2 = new Scene (root2);
 		menu.setTitle("Menu");
