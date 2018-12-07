@@ -10,7 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+<<<<<<< HEAD
 import javafx.scene.control.MenuItem;
+=======
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.ContextMenuEvent;
@@ -28,12 +31,15 @@ static String email;
     private PasswordField enterPassword;
 
     @FXML
+<<<<<<< HEAD
     private MenuItem español;
     
     @FXML
     private MenuItem english;
     
     @FXML
+=======
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
     private CheckBox premiumBotton;
 
     @FXML
@@ -108,7 +114,19 @@ static String email;
     
     @FXML
     void changeLanguage(ActionEvent event){
+<<<<<<< HEAD
     	//if(español.selec)
     }
 
 }
+=======
+    	language = new ComboBox<>();
+    	//ObservableList<String> languages = FXCollections.observableArrayList("Español","english","Rusian");
+    	//language.setItems(languages);
+    	//language.getItems();
+    	language.getItems().addAll("Español","French");
+    }
+
+}
+
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a

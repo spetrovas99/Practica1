@@ -57,6 +57,7 @@ public class Category extends ChangeLanguage {
 		}
 		return cat;
 	}
+<<<<<<< HEAD
 	
 	static Category categorySearch(String name){
 		Category c = null;
@@ -79,6 +80,9 @@ public class Category extends ChangeLanguage {
 	}
 	
 	Product searchProduct(){
+=======
+	 Product searchProduct(){
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 		Product product= null;
 		String res;
 		System.out.println(searchProduct);
@@ -101,5 +105,5 @@ public class Category extends ChangeLanguage {
 			System.out.println(notFound);
 		}
 		return product;
-	}		 
+	}	 
 }

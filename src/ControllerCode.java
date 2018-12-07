@@ -23,9 +23,21 @@ public class ControllerCode {
 			badCode.setVisible(true);
 		}else{
 			GraphicInterface.todas.code.close();
+<<<<<<< HEAD
 			GraphicInterface.todas.email.close();
+=======
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 			GraphicInterface.todas.menu.show();
 		}
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+
+
+   
+   
+    
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a

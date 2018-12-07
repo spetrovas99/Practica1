@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.Scanner;
 
 import javafx.event.ActionEvent;
@@ -12,6 +13,16 @@ import javafx.scene.input.MouseEvent;
 
 public class MenuController {
 	static String cat = null;
+=======
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TextField;
+
+public class MenuController {
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 
     @FXML
     private TextField searchProduct;
@@ -29,16 +40,20 @@ public class MenuController {
     private MenuItem sports;
 
     @FXML
+<<<<<<< HEAD
     private Label info;
     
     @FXML
     private	ImageView photos;
     
     @FXML
+=======
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
     private MenuItem books;
 
     @FXML
     private MenuItem films;
+<<<<<<< HEAD
     
     @FXML
     private Label notFound;
@@ -85,4 +100,17 @@ public class MenuController {
 		   }
 	   }
     }
+=======
+
+    @FXML
+    void igual(ActionEvent event) {
+
+    }
+
+    @FXML
+    void search(ActionEvent event) {
+    	
+    }
+
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 }

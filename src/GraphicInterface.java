@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 public class GraphicInterface extends ChangeLanguage {
+=======
+public class GraphicInterface {
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 	static TodasGraphicInterface todas = new TodasGraphicInterface();
 	
 	static void esperar(int mili){
@@ -10,6 +14,7 @@ public class GraphicInterface extends ChangeLanguage {
 		}
 	}
 	
+<<<<<<< HEAD
 	public static void main(String[] args){
 		ChangeLanguage.changeEnglish();
 		
@@ -38,3 +43,9 @@ public class GraphicInterface extends ChangeLanguage {
 		todas.launcher();
 	}
 }
+=======
+	public static void main(String[] args) {
+		todas.launcher();
+	}
+}
+>>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
