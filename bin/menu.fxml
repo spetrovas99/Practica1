@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<<<<<<< HEAD
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
@@ -29,29 +28,7 @@
             <Font name="Andale Mono" size="13.0" />
          </font>
       </Label>
-      <ImageView fx:id="photo" fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="photo" fitHeight="150.0" fitWidth="200.0" layoutX="87.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="info" layoutX="352.0" layoutY="163.0" text="Label" />
-=======
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F8E0F7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
-   <children>
-      <Button layoutX="48.0" layoutY="215.0" mnemonicParsing="false" text="Show cart" />
-      <Button layoutX="48.0" layoutY="132.0" mnemonicParsing="false" text="All categories" />
-      <Button fx:id="searchButton" layoutX="470.0" layoutY="47.0" mnemonicParsing="false" onAction="#search" text="OK" />
-      <Button layoutX="48.0" layoutY="256.0" mnemonicParsing="false" text="Close" />
-      <TextField fx:id="searchProduct" layoutX="202.0" layoutY="47.0" prefHeight="27.0" prefWidth="268.0" promptText="Search product" />
-      <SplitMenuButton fx:id="allCategories" layoutX="74.0" layoutY="47.0" mnemonicParsing="false" text="All categories">
-        <items>
-            <MenuItem fx:id="clothes" mnemonicParsing="false" onAction="#igual" text="Clothes" />
-          <MenuItem fx:id="sports" mnemonicParsing="false" onAction="#igual" text="Sports" />
-            <MenuItem fx:id="books" mnemonicParsing="false" onAction="#igual" text="Books" />
-            <MenuItem fx:id="films" mnemonicParsing="false" onAction="#igual" text="Films" />
-        </items>
-      </SplitMenuButton>
->>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
    </children>
 </Pane>
