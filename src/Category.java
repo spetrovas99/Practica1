@@ -9,29 +9,34 @@ public class Category extends ChangeLanguage {
 	List<Product> products = new ArrayList<Product>();
 	
 	Category(){
-		name = null;
-		
+		name = null;	
 	}
+	
 	Category(String name){
 		this.name = name;
 		categories.add(this);
 	}
+	
 	String getName(){
 		return name;
 	}
+	
 	void setName( String name){
 		this.name = name;
 	}
+	
 	static void printCategories(){
 		for (int i = 0; i < categories.size(); i++){
 			System.out.println(categories.get(i).getName());
 		}
 	}
+	
 	void printProducts(){
 		for (int i = 0; i < this.products.size(); i++){
 			System.out.println(this.products.get(i).getName());
 		}
 	}
+	
 	static Category seacrhCategory(){
 		Scanner tec = new Scanner(System.in);
 		String res;
@@ -52,6 +57,27 @@ public class Category extends ChangeLanguage {
 		}
 		return cat;
 	}
+	
+	static Category categorySearch(String name){
+		Category c = null;
+		for(int i = 0; i < categories.size(); i++){
+			if(name.equals(categories.get(i).getName())){
+				c = categories.get(i);
+			}
+		}
+		return c;
+	}
+	
+	Product productSearch(String name){
+		Product p = null;
+		for(int i = 0; i < this.products.size(); i++){
+			if(name.equals(this.products.get(i).getName())){
+				p = this.products.get(i);
+			}
+		}
+		return p;
+	}
+	
 	Product searchProduct(){
 		Product product= null;
 		String res;

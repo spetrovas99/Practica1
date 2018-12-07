@@ -4,8 +4,8 @@ import java.util.Random;
 public class LoginEmail implements Files{
 	
 	static int random(){
-		Random rnd = new Random();
-		int num = (rnd.nextInt((int)System.currentTimeMillis())%90000) + 10000;
+		Random rnd = new Random(System.currentTimeMillis());
+		int num = (rnd.nextInt() % 90000) + 10000;
 		return num;
 	}
 	static int x;
