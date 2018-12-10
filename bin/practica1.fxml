@@ -28,7 +28,7 @@
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
 
-            <MenuButton mnemonicParsing="false" onAction="#changeLanguage" text="Languages">
+            <MenuButton fx:id="changeLan" mnemonicParsing="false" onAction="#changeLanguage" text="Languages">
               <items>
                 <MenuItem fx:id="english" mnemonicParsing="false" onAction="#english" text="english" />
                 <MenuItem fx:id="español" mnemonicParsing="false" onAction="#español" text="español" />
