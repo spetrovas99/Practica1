@@ -57,7 +57,7 @@ public class Category extends ChangeLanguage {
 		}
 		return cat;
 	}
-<<<<<<< HEAD
+
 	
 	static Category categorySearch(String name){
 		Category c = null;
@@ -79,10 +79,8 @@ public class Category extends ChangeLanguage {
 		return p;
 	}
 	
-	Product searchProduct(){
-=======
+	
 	 Product searchProduct(){
->>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 		Product product= null;
 		String res;
 		System.out.println(searchProduct);

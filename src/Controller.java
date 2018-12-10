@@ -10,10 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-<<<<<<< HEAD
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-=======
->>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.ContextMenuEvent;
@@ -21,6 +19,7 @@ import javafx.scene.input.ContextMenuEvent;
 public class Controller {
 static String user;
 static String email;
+static String op ="";
     @FXML
     public TextField enterEmail;
 
@@ -31,16 +30,16 @@ static String email;
     private PasswordField enterPassword;
 
     @FXML
-<<<<<<< HEAD
     private MenuItem español;
     
     @FXML
     private MenuItem english;
     
     @FXML
-=======
->>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a
     private CheckBox premiumBotton;
+    
+    @FXML
+    private MenuButton changeLan;
 
     @FXML
     private TextField enterCreditCard;
@@ -54,9 +53,6 @@ static String email;
     @FXML
     private Label error;
     
-    @FXML
-    private ComboBox<String> language;
-
     @FXML
     void enterButtonPressed(ActionEvent event) {
     	boolean bad = false;
@@ -111,22 +107,30 @@ static String email;
     			enterCreditCard.setVisible(false);
     		}
     }
+   
+    @FXML
+    void español(ActionEvent event){
+    	op ="español";
+    }
+    
+    @FXML
+    void english(ActionEvent event){
+    	op = "english";
+    }
     
     @FXML
     void changeLanguage(ActionEvent event){
-<<<<<<< HEAD
-    	//if(español.selec)
-    }
-
+    	switch (op){
+    	case"english":
+    		
+    		ChangeLanguage.changeEnglish();
+    		break;
+    	case"español":
+    		ChangeLanguage.changeSpanish();
+    		break;
+    	default:
+    		ChangeLanguage.changeEnglish();
+    	}
+    	
+    }   
 }
-=======
-    	language = new ComboBox<>();
-    	//ObservableList<String> languages = FXCollections.observableArrayList("Español","english","Rusian");
-    	//language.setItems(languages);
-    	//language.getItems();
-    	language.getItems().addAll("Español","French");
-    }
-
-}
-
->>>>>>> 6761a032c5c21029f9cadcf93be7804e2399b25a

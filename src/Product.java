@@ -195,6 +195,30 @@ public class Product extends ChangeLanguage{
 		
 	}
 	
+	static String info (Product product){
+		String info = "";
+		info  = info + ChangeLanguage.name + product.getName() + "\r\n";
+		info = info + ChangeLanguage.price;
+		if(User.getUser().premium){
+			info = info + product.price ;
+		}else{
+			info = info + product.pricenop;
+		}
+		info =info + product.getMny()+ "\r\n";
+		if(product.getStock() == 0){
+			info = info + notStock + "\r\n";
+		}else{
+			info = info + "Stock: " + product.getStock() + "\r\n";
+		}
+		
+		if(product.cat.getName().equals(books)){
+			info = info +language + "\r\n";
+			Books book = (Books)product;
+			book.printLanguage();
+		}
+		return info;
+	}
+	
 	static String time(){
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DAY_OF_MONTH, 15);

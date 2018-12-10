@@ -10,7 +10,7 @@ public class User extends ChangeLanguage{
 	protected String login;
 	protected boolean premium;
 	protected int credit;
-	private static User user;
+	public static User user;
 	private User(){
 	}
 	public static User getUser(){
@@ -211,5 +211,22 @@ public class User extends ChangeLanguage{
 		if (userProduct.isEmpty()){
 			System.out.println(noItem);
 		}
+	}
+	
+	static String printInfo(){
+		String cart = "";
+		for (int i = 0; i < user.userProduct.size(); i++){
+			cart += user.userProduct.get(i).getName() + "\r\n";
+			if(user.premium){
+				cart += user.userProduct.get(i).getPrice();
+				cart += user.userProduct.get(i).getMny() + "\r\n";
+				}else{
+					cart += user.userProduct.get(i).getPricenop();
+					cart+= user.userProduct.get(i).getMny() + "\r\n";
+				}
+			
+			
+		}
+		return cart;
 	}
 }

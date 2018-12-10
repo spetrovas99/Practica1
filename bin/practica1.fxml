@@ -30,8 +30,8 @@
 
             <MenuButton mnemonicParsing="false" onAction="#changeLanguage" text="Languages">
               <items>
-                <MenuItem fx:id="english" mnemonicParsing="false" text="English" />
-                <MenuItem fx:id="español" mnemonicParsing="false" text="Español" />
+                <MenuItem fx:id="english" mnemonicParsing="false" onAction="#english" text="english" />
+                <MenuItem fx:id="español" mnemonicParsing="false" onAction="#español" text="español" />
               </items>
             </MenuButton>
             <TextField fx:id="enterEmail" promptText="Email">
